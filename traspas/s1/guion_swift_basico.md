@@ -2,47 +2,56 @@
 
 ## Variables y constantes
 
-- Las **variables** se definen con `var` y las **constantes** con `let`. Swift ***induce*** el tipo a partir del valor inicial. 
+- Las **variables** se definen con `var` y las **constantes** con `let`. Swift ***induce*** el tipo a partir del valor inicial. `var v = 1` (v es un Int)
+- Tipos **básicos**: `Int`, `Double`, `Float`, `Bool`
 - **`type(of:)`** nos devuelve el tipo
 - El lenguaje es **fuertemente tipado** y no hay conversión automática
-- Podemos **especificar nosotros el tipo** en la declaración
-- Tipos **básicos**: `Int`, `Double`, `Float`, `Bool`
-- `Any` para indicar "cualquier tipo"
+```swift
+var i = 1 //Int
+var d = 1.5 //Double
+print(i+d) //Error!
+print(Double(i)+d). //2.5
+```
+- Podemos **forzar nosotros el tipo** en la declaración (si es coherente con el valor inicial): `var explicitFloat : Float = 1.5`
 - Si declaramos una **variable sin inicializar** y la intentamos usar, es un **error** de compilación
+- `Any` para indicar "cualquier tipo"
+
 
 ## Tipos de datos básicos (de la librería estándar)
 
-- String
+- `ClosedRange`: `1...5`, `Range`: `1..<5` útil por ejemplo en bucles. También se puede ver si contiene un valor, por ejemplo `(1...5).contains(4)==true`
+
+### String
  * Interpolación con `\()`
  * Cadenas multilínea con tres `"`
 
-- Colecciones: arrays, conjuntos y diccionarios
+### Colecciones: arrays, conjuntos y diccionarios
 
-- Arrays
- * Inicialización con valores literales `[   ]` o con `[tipo]()`
- * declaración con `[tipo]` o `Array<tipo>`
- * Podemos hacer arrays "heterogéneos" con `Any`: `var lista: [Any] = ["hola",1]`
- * pueden cambiar de tamaño **dinámicamente**: `append`, `insert(_:, at:)`, `remove(at:)`
- * Podemos concatenar arrays con `+`
- * Iterar sobre un array con `for variable in array {  }`
+#### Arrays
+ + Inicialización con valores literales `[   ]` o uno vacío con `[tipo]()`
+ + declaración con `[tipo]` o `Array<tipo>`
+ + Podemos hacer arrays "heterogéneos" con `Any`: `var lista: [Any] = ["hola",1]`
+ + pueden cambiar de tamaño **dinámicamente**: `append`, `insert(_:, at:)`, `remove(at:)`
+ + Podemos concatenar arrays con `+`
+ + Iterar sobre un array con `for variable in array {  }`
 
-- Conjuntos
+#### Conjuntos
  * Listas de valores que no se pueden repetir
  * Si inicializamos con literal, hay que especificar como tipo `Set`, si no Swift lo tomaría como array `var generos : Set = ["Rock", "Pop"]`
  * Algunas operaciones: `insert(_)`, `remove(_)`, `set1.union(set2)`,... 
  * Iterar con `for ... in` como en los arrays
 
 
-- Diccionarios 
- * Inicialización con literales `[clave1:valor1, clave2:valor2,...]` o con `[tipoClave:tipoValor]()`
+#### Diccionarios 
+ * Inicialización con literales `[clave1:valor1, clave2:valor2,...]` o uno vacío con `[tipoClave:tipoValor]()`
  * declaración con `[tipoClave:tipoValor]` o `Dictionary<tipoClave, tipoValor>`
  * leer, modificar con `diccionario[clave]`
  * Iterar con `for (clave,valor) in diccionario {  }`
 
-- `ClosedRange`: `1...5`, `Range`: `1..<5 útil por ejemplo en bucles. También se puede ver si contiene un valor, por ejemplo `(1...5).contains(4)==true`
 
 ## Instrucciones de control de flujo
 
+- Aunque en un bloque de un bucle o un condicional haya una sola instrucción hay que poner explícitamente las llaves 
 - Ya hemos visto `for ... in` con colecciones. También se puede aplicar a *rangos*: `for valor in 1...5 { }`, `for valor in 0..<limite`
   * variable anónima para iteración, cuando no nos interesa en qué iteración estamos: `for _ in 1...5`
 - `if`, `while`:
@@ -70,6 +79,14 @@
 - Podemos *desenvolver* el opcional con `!`, pero intentar desenvolver `nil` es un error
 - Patrón típico para desenvolver opcionales: `if let var = varOpcional { }`
 - Como el código de desenvolver es tedioso, se nos da la posibilidad de definir opcionales pero tratarlos como si no lo fueran: Implicitly unwrapped optionals, declarados con `tipo!`, por ejemplo: `var num:Int!`
+
+```swift
+var num: Int!
+num = 2
+print(num)  //print no fuerza a que se desenvuelva, saldrá Optional(2)
+var res = num + 3  //no hace falta desenvolverlo para usarlo
+
+```
 
 ## Clases
 
