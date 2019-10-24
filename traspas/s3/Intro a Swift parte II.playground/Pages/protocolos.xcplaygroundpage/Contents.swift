@@ -3,25 +3,26 @@
 //: - como los interfaces de Java
 //: - definen *tipos*, pero no implementaciones
 
-protocol ProtocoloEjemplo {
+protocol Amigable {
     func saludar()->String
-    //Propiedad calculada: debemos decir si es gettable y/o settable
-    var descripcion: String {get set}
     //si la función muta algún dato, debemos especificarlo
-    mutating func reggaetonizar()
+    mutating func fijarSaludo(nuevo:String)
 }
 
-class MiClase : ProtocoloEjemplo {
-    var descripcion = "Mi Clase"
+class MiClase : Amigable {
+    var nombre = "Mi Clase"
+    var saludo = "Hola soy"
     func saludar()->String {
-        return "Hola soy " + self.descripcion
+        return self.saludo + " " + self.nombre
     }
-    func reggaetonizar() {
-        self.descripcion += " ya tú sabes"
+    func fijarSaludo(nuevo: String) {
+        self.saludo = nuevo
     }
 }
 
 let mc = MiClase()
-mc.reggaetonizar()
 print(mc.saludar())
+mc.fijarSaludo(nuevo: "EEEEEEYY")
+print(mc.saludar())
+
 //: [Next](@next)

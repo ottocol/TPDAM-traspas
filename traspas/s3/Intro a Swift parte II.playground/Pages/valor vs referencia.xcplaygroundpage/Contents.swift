@@ -18,5 +18,6 @@ print(p2.descripcion)
 
 //: Ejercicio: ¿qué pasa si cambiamos lo anterior por un class?
 
+//: Ejercicio: ¿Qué pasa si definimos un Struct y una class como constantes e intentamos cambiar alguna propiedad?
 
 //: [Sig.](@next)
