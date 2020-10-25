@@ -1,6 +1,6 @@
 <!-- .slide: class="titulo" -->
-## Tecnologías de Desarrollo de Aplicaciones
-## iOS sesión 2: Introducción a las aplicaciones iOS
+## Tecnologías de Desarrollo de Aplicaciones. Bloque iOS
+## Introducción a las aplicaciones iOS
 
 ---
 

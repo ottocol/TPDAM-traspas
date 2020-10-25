@@ -84,8 +84,7 @@ print(Double(i)+d). //2.5
 var num: Int!
 num = 2
 print(num)  //print no fuerza a que se desenvuelva, saldrá Optional(2)
-var res = num + 3  //no hace falta desenvolverlo para usarlo
-
+var res = num + 3  //5, no hace falta desenvolver "num" para usarlo
 ```
 
 ## Clases
